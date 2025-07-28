@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: thumb-like
+  mvc:
+    servlet:
+      path: /api
+  # DataSource Config
+  datasource:
+    driver-class-name:
+      com.mysql.cj.jdbc.Driver
+      #    url: jdbc:mysql://localhost:3306/thumb_db?useSSL=false&serverTimezone=UTC
+      #    username: root
+      #    password: luoqinfeng
+    url: jdbc:mysql://localhost:4000/thumb_db
+    username: me
+    password: 123456
+
+  data:
+    # Redis 配置
+    redis:
+      database: 0
+      host: 127.0.0.1
+      # password: # 不设置密码，注释掉这行
+      timeout: 5000
+      port: 6379
+
+# mybatis-plus
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# knife4j 的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+server:
+  port: 9199
+## 整合 Prometheus + Grafana
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health, prometheus, metrics
+#  metrics:
+#    distribution:
+#      percentiles:
+#        http:
+#          server:
+#            requests: 0.5, 0.75, 0.9, 0.95, 0.99
+
